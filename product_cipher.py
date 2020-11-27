@@ -22,7 +22,7 @@ class ProductCipher:
         
         #encrypt
         for i in range(len(plaintext_int)):
-            value = (plaintext_int[i] + key_int[i % key_length]) % 52
+            value = (plaintext_int[i] + key_int[i % key_length]) % 26
             self.ciphertext += chr(value + 65)
 
         return self.ciphertext
@@ -38,7 +38,7 @@ class ProductCipher:
         
         #decrypt
         for i in range(len(ciphertext_int)):
-            value = (ciphertext_int[i] - key_int[i % key_length]) % 52
+            value = (ciphertext_int[i] - key_int[i % key_length]) % 26
             self.plaintext += chr(value + 65)
 
         return self.plaintext
