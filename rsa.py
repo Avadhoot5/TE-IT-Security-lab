@@ -84,4 +84,7 @@ elif plaintext == None:
     print("decrypted plaintext: {}".format(dectext))
 elif plaintext != None and ciphertext != None:
     print("You cannot have -e and -c together!")
-
+    parser.print_help()
+else:
+    print("how did you land here?")
+    parser.print_help()
