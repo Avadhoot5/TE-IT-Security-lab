@@ -1,18 +1,14 @@
 #!/usr/bin/python3
+
 """
 lets explain RSA algorithm first
-
 theres 2 prime numbers, p and q
-
 n = p*q is the modulus for both public and private keys
 
-phi(n) or t is the totient. totient 't' is a number smaller than 'n', such that 't' shares no common factors with 'n' (co-primes). For a prime number 'p', t = p-1 (Eulters totient function)
-    hence phi(n) = (p-1).(q-1), since n = p.q
+phi(n) or t is the totient. totient 't' is a number smaller than 'n', such that 't' shares no common factors with 'n' (co-primes). For a prime number 'p', t = p-1 (Eulters totient function) hence phi(n) = (p-1).(q-1), since n = p.q
 
 e is the public key exponent, such that 1 < e < phi(n) and e and phi(n) are co-primes. so gcd(e, phi(n)) = 1
-
 d is the private key exponent, such that d.e = 1+x.phi(n), d has to be an integer
-
 x is any integer. it is prefebaly chosen as x = 1+ i*phi(n) and x%e = 0, so its value must fall between 1 and 10
 
 ENCRYPTION: ciphertext = plaintext ^ e % n
@@ -24,7 +20,6 @@ from base64 import b64encode, b64decode
 import argparse
 
 class RSA:
-
     def __init__(self, p, q):
         self.p = p
         self.q = q
@@ -68,6 +63,7 @@ parser.add_argument("-q", metavar="prime2", help="second prime")
 parser.add_argument("-e", metavar="plaintext", help="plaintext to encrypt")
 parser.add_argument("-c", metavar="ciphertext", help="ciphertext to decrypt")
 args = parser.parse_args()
+
 #get primes
 p = int(args.p)
 q = int(args.q)
@@ -81,10 +77,6 @@ if ciphertext == None:
     print("ciphertext: {}".format(enctext))
 elif plaintext == None:
     dectext = rsa.decrypt(ciphertext)
-    print("decrypted plaintext: {}".format(dectext))
+    print("plaintext: {}".format(dectext))
 elif plaintext != None and ciphertext != None:
     print("You cannot have -e and -c together!")
-    parser.print_help()
-else:
-    print("how did you land here?")
-    parser.print_help()
