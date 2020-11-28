@@ -48,7 +48,7 @@ class RSA:
         plaintext = [ord(i) for i in plaintext]
         ciphertext = [(i**self.e)%self.n for i in plaintext]
         enctext = ''.join(chr(i) for i in ciphertext)
-        return (b64encode(enctext.encode('utf-8'))).decode('utf-8')
+        return b64encode(enctext.encode('utf-8')).decode('utf-8')
 
     def decrypt(self, ciphertext):
         ciphertext = b64decode(ciphertext.encode('utf-8')).decode('utf-8')
