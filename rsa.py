@@ -5,7 +5,7 @@ lets explain RSA algorithm first
 theres 2 prime numbers, p and q
 n = p*q is the modulus for both public and private keys
 
-phi(n) or t is the totient. totient 't' is a number smaller than 'n', such that 't' shares no common factors with 'n' (co-primes). For a prime number 'p', t = p-1 (Eulters totient function) hence phi(n) = (p-1).(q-1), since n = p.q
+phi(n) or t is the totient. totient 't' is a number smaller than 'n', such that 't' shares no common factors with 'n' (co-primes). For a prime number 'p', t = p-1 (Eulers totient function) hence phi(n) = (p-1).(q-1), since n = p.q
 
 e is the public key exponent, such that 1 < e < phi(n) and e and phi(n) are co-primes. so gcd(e, phi(n)) = 1
 d is the private key exponent, such that d = x/e, d has to be an integer
