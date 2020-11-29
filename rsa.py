@@ -74,9 +74,9 @@ rsa = RSA(p, q)
 
 if ciphertext == None:
     enctext = rsa.encrypt(plaintext)
-    print("private exponential: {}\npublic exponential: {}\nciphertext: {}".format(rsa.e, rsa.d, enctext))
+    print("private exponential: {}\npublic exponential: {}\nmodulus: {}\nciphertext: {}".format(rsa.e, rsa.d, rsa.n, enctext))
 elif plaintext == None:
     dectext = rsa.decrypt(ciphertext)
-    print("private exponential: {}\npublic exponential: {}\nplaintext: {}".format(rsa.e, rsa.d, dectext))
+    print("private exponential: {}\npublic exponential: {}\nmodulus: {}\nplaintext: {}".format(rsa.e, rsa.d, rsa.n, dectext))
 elif plaintext != None and ciphertext != None:
     print("You cannot have -e and -c together!")
